@@ -1,0 +1,172 @@
+/* Responsive CSS for Mood Recipes app */
+
+/* Base styles for improved performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Performance improvements */
+.transform-gpu {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+input[type="time"] {
+  font-size: 16px; /* Prevents iOS zoom on focus */
+}
+
+/* Mobile first improvements */
+@media screen and (max-width: 640px) {
+  .main-container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  h1.text-4xl {
+    font-size: 1.75rem !important;
+  }
+  
+  .recipe-card {
+    padding: 1rem !important;
+  }
+  
+  .p-6 {
+    padding: 1rem !important;
+  }
+  
+  .mb-12 {
+    margin-bottom: 2rem !important;
+  }
+  
+  .mb-6 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .mood-icon {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Improve button tap target size */
+  .mood-btn, button {
+    min-height: 44px;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .recipe-card::before {
+    animation: none; /* Disable complex animations */
+  }
+  
+  .ultra-gradient {
+    filter: blur(40px); /* Less intensive blur */
+    animation-duration: 90s !important; /* Slower animation */
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .mood-btn:hover {
+    transform: none !important;
+  }
+  
+  .btn-shine::after {
+    animation: none; /* Disable shine effect on touch devices */
+  }
+}
+
+/* Optimizations for all screen sizes */
+.grid-cols-2 {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important;
+}
+
+/* Medium screens */
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+  .max-w-md {
+    max-width: 90% !important;
+  }
+}
+
+/* Improve loading states */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 3px solid rgba(124, 58, 237, 0.3);
+  border-top-color: rgba(124, 58, 237, 1);
+  animation: spin 1s linear infinite;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-spin, .float, .pulse, .rotate-shimmer, .shine {
+    animation: none !important;
+  }
+  
+  .ultra-gradient {
+    background: linear-gradient(45deg, #0f172a, #3730a3) !important;
+    filter: blur(30px);
+    animation: none !important;
+  }
+}
+
+/* Better focus states for accessibility */
+button:focus, .mood-btn:focus, input:focus {
+  outline: 2px solid #a78bfa !important;
+  outline-offset: 2px !important;
+}
+
+/* Fast click/tap response */
+button, .mood-btn {
+  touch-action: manipulation;
+}
+
+/* Improved scrolling */
+html, body {
+  scroll-padding-top: 2rem;
+  overscroll-behavior-y: contain;
+}
+
+/* Print styles */
+@media print {
+  .ultra-gradient, .bg-gradient-custom::before, .bg-gradient-custom::after {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  #mood-selector, #time-input-container, #new-recipe-btn, #change-mood-btn {
+    display: none !important;
+  }
+  
+  .recipe-card {
+    border: 1px solid black !important;
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  .recipe-card h3, .recipe-card h4, .recipe-card p {
+    color: black !important;
+  }
+}

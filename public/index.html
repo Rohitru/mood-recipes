@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Recipes</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-custom min-h-screen">
+  <div class="ultra-gradient"></div>
+  <div class="main-container container mx-auto px-4 py-8">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold title-glow mb-2" data-text="Mood Recipes">Mood Recipes</h1>
+      <p class="text-lg text-gray-300">Find the perfect recipe for your current mood</p>
+    </header>
+
+    <div class="max-w-md mx-auto bg-gray-900/80 backdrop-blur-sm rounded-lg shadow-xl overflow-hidden border border-purple-900/30">
+      <div class="p-6 recipe-container-bg">
+        <div id="time-input-container" class="mb-6">
+          <h2 class="text-xl font-semibold text-gray-200 mb-4">What time is it now?</h2>
+          <div class="flex items-center">
+            <input type="time" id="current-time" class="bg-gray-800 border border-gray-700 text-gray-200 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-purple-600">
+            <button id="use-current-time" class="ml-2 bg-purple-800 text-gray-200 px-3 py-2 rounded-md hover:bg-purple-700 transition btn-shine">Now</button>
+          </div>
+        </div>
+
+        <h2 class="text-xl font-semibold text-gray-200 mb-4">How are you feeling today?</h2>
+        
+        <div id="mood-selector" class="grid grid-cols-2 gap-3 mb-6">
+          <!-- Mood buttons will be inserted here dynamically -->
+        </div>
+
+        <div id="recipe-container" class="hidden">
+          <div class="recipe-card border-t border-b border-gray-700 py-4 mb-4">
+            <h3 id="recipe-title" class="text-xl font-bold text-purple-400 mb-2"></h3>
+            
+            <p id="time-message" class="text-sm text-purple-300 italic mb-3"></p>
+            
+            <div class="mb-4">
+              <h4 class="font-semibold text-gray-300 mb-1">Ingredients:</h4>
+              <p id="recipe-ingredients" class="text-gray-400"></p>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-gray-300 mb-1">Instructions:</h4>
+              <p id="recipe-instructions" class="text-gray-400"></p>
+            </div>
+          </div>
+          
+          <button id="new-recipe-btn" class="w-full py-2 px-4 bg-purple-800 text-white font-semibold rounded-md hover:bg-purple-700 transition duration-300 ease-in-out mb-2 btn-shine">
+            Give me another recipe
+          </button>
+          
+          <button id="change-mood-btn" class="w-full py-2 px-4 bg-gray-700 text-gray-200 font-semibold rounded-md hover:bg-gray-600 transition duration-300 ease-in-out">
+            Change my mood
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html> 
