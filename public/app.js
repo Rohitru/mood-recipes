@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle mood selection with debounce
   function selectMood(moodId) {
     if (isLoading) return; // Prevent multiple clicks
-    console.log("tesat");
+
     
     currentMoodId = moodId;
     
